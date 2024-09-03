@@ -1,0 +1,88 @@
+/* src/components/Menu.css */
+
+/* Estilos do Nav */
+.nav {
+    background-color: #333;
+    padding: 25px;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Menu Desktop */
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menuItem {
+    margin: 0 20px;
+}
+
+.menuLink {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Ocultar o menu mobile inicialmente */
+.hideMenu {
+    display: none !important;
+}
+
+/* Menu Burger */
+.burgerMenu {
+    display: none;
+    /* Oculto no desktop */
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 1001;
+}
+
+.burgerLine {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+}
+
+/* Menu Mobile */
+.menuMobile {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(51, 51, 51, 0.95);
+    z-index: 1000;
+}
+
+/* Mostrar menu mobile */
+.showMenu {
+    display: flex;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        /* Oculta o menu desktop em telas menores */
+    }
+
+    .burgerMenu {
+        display: flex;
+        /* Mostra o menu burger no mobile */
+    }
+}

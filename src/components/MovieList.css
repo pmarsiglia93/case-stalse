@@ -1,0 +1,87 @@
+/* src/components/MovieList.css */
+
+/* Slider Mobile */
+.slider-mobile {
+    display: none;
+    /* Oculto no desktop */
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    /* Para posicionar as setas corretamente */
+}
+
+.slick-slide {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+    /* Garante que cada slide ocupe a largura total */
+}
+
+.slick-list {
+    overflow: hidden;
+    /* Garante que o overflow seja oculto */
+}
+
+.slick-track {
+    display: flex;
+}
+
+.movie-card-container {
+    width: 100%;
+    /* Garante que o card ocupe a largura total do slider */
+}
+
+/* Arrows Personalizadas */
+.slick-arrow {
+    background-color: #333;
+    color: #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    /* Centraliza verticalmente */
+    transform: translateY(-50%);
+    /* Ajuste para centralizar */
+}
+
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
+
+.slick-prev::before,
+.slick-next::before {
+    display: none;
+    /* Remove o texto padrão das setas */
+}
+
+/* Estilo para o Desktop */
+.cards-desktop {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Mostrar o slider apenas em mobile */
+@media (max-width: 768px) {
+    .slider-mobile {
+        display: block;
+        /* Mostra o slider em telas menores */
+    }
+
+    .cards-desktop {
+        display: none;
+        /* Oculta os cards no mobile */
+    }
+}
