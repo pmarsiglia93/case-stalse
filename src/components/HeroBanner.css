@@ -1,0 +1,30 @@
+/* src/components/HeroBanner.css */
+
+/* Estilo padrão para o banner desktop */
+.banner-desktop {
+    width: 100%;
+    height: 500px;
+    /* Tamanho sugerido para desktop */
+    object-fit: cover;
+}
+
+/* Esconde o banner desktop no mobile */
+.banner-mobile {
+    display: none;
+}
+
+/* Media query para mobile */
+@media (max-width: 768px) {
+    .banner-desktop {
+        display: none;
+        /* Esconde o banner desktop */
+    }
+
+    .banner-mobile {
+        display: block;
+        width: 100%;
+        height: 250px;
+        /* Tamanho sugerido para mobile */
+        object-fit: cover;
+    }
+}

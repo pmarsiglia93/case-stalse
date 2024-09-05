@@ -1,7 +1,7 @@
 // src/components/MoviePage.js
 import React, { useEffect, useState } from 'react';
-import HeroBanner from './HeroBanner';
-import MovieList from './MovieList';
+import HeroBanner from './HeroBanner'; // Importando o HeroBanner
+import MovieList from './MovieList'; // Importando a lista de filmes
 
 const MoviePage = ({ movieTitle }) => {
     const [movies, setMovies] = useState([]);
@@ -9,7 +9,7 @@ const MoviePage = ({ movieTitle }) => {
     useEffect(() => {
         const fetchMovies = async () => {
             try {
-                let query = movieTitle;
+                let query = movieTitle; // Definindo a query como o título do filme (Batman, Spider-Man, Avengers)
 
                 const response = await fetch(`https://www.omdbapi.com/?s=${query}&type=movie&apikey=1e5700a2`);
                 const data = await response.json();
@@ -38,11 +38,13 @@ const MoviePage = ({ movieTitle }) => {
         };
 
         fetchMovies();
-    }, [movieTitle]);
+    }, [movieTitle]); // Refaz a busca toda vez que o movieTitle mudar (Batman, Spider-Man, Avengers)
 
     return (
         <div>
+            {/* Exibe o HeroBanner, passando o título do filme (Batman, Spider-Man ou Avengers) */}
             <HeroBanner movieTitle={movieTitle} />
+            {/* Exibe a lista de filmes */}
             <MovieList movies={movies} />
         </div>
     );
