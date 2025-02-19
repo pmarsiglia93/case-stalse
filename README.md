@@ -1,47 +1,34 @@
-Projeto API de Filmes
+# Projeto API de Filmes
 
-🎬 Visão Geral
+## 🎬 Visão Geral
+Este projeto tem como objetivo criar uma aplicação em **React** que consome uma **API de filmes** externa, demonstrando o uso de integração de APIs no front-end.
 
-Este projeto tem como objetivo criar uma aplicação em React que consome uma API de filmes externa, demonstrando o uso de integração de APIs no front-end.
+🔗 **Acesse o projeto online:** [Projeto API de Filmes](https://case-stalse.vercel.app/)
 
-🔗 Acesse o projeto online: Projeto API de Filmes
+---
 
-🚀 Como Rodar Localmente
+## 🚀 Como Rodar Localmente
 
-Passos:
+### Passos
+1. Clone o repositório:
+2. Acesse a pasta do projeto
+3. Instale as dependências:
+   npm install
+4. Inicie o projeto:
+   npm start
 
-Clone o repositório:
+📌 O projeto estará disponível em `http://localhost:3000`
 
-git clone <url-do-repositorio>
+## 📌 Tecnologias
+- React.js
+- Html
+- CSS
+- Javascript
 
-Acesse a pasta do projeto:
+## 📬 Contato
+Dúvidas ou sugestões? Entre em contato:
+- **E-mail:** pmarsiglia93@gmail.com
+- **LInkedin:** https://www.linkedin.com/in/paulomarsiglia/
 
-cd nome-da-pasta
-
-Instale as dependências:
-
-npm install
-
-Inicie o projeto:
-
-npm start
-
-📌 O projeto estará disponível em: http://localhost:3000
-
-📌 Tecnologias Utilizadas
-
-React.js
-
-HTML
-
-CSS
-
-JavaScript
-
-📬 Contato
-
-Dúvidas ou sugestões? Fique à vontade para entrar em contato!
-
-E-mail: pmarsiglia93@gmail.com
-
-LinkedIn: Paulo Marsiglia
+---
+**Contribuições são bem-vindas!** 🎉
