@@ -62,7 +62,7 @@ O cliente expõe duas operações principais:
 - `getMovieDetails(imdbID)` para a página de detalhes.
 O catálogo utiliza uma lista explícita de 169 `imdbID`s de produções Marvel, DC, independentes, originais e internacionais. Essa estratégia evita falsos positivos das buscas textuais da OMDb, como filmes sem relação com super-heróis que contenham “Avengers” no título.
 
-A chave não faz parte do código-fonte. Como esta é uma aplicação exclusivamente front-end, a variável é incluída no bundle em produção; restrinja a chave no provedor quando possível. Para ocultar um segredo de fato, seria necessário intermediar as chamadas em um backend ou função serverless.
+A chave não faz parte do código-fonte nem do bundle de produção. Na Vercel, o front-end consulta a função serverless `api/omdb.js`, que mantém `OMDB_API_KEY` somente no servidor. Em desenvolvimento local, o cliente usa `REACT_APP_OMDB_API_KEY` do arquivo `.env`.
 
 ## Como executar
 
@@ -91,7 +91,7 @@ Crie um arquivo `.env` na raiz:
 REACT_APP_OMDB_API_KEY=your_api_key_here
 ```
 
-Reinicie o servidor de desenvolvimento após alterar variáveis de ambiente. O arquivo `.env` está ignorado pelo Git; apenas `.env.example` deve ser versionado.
+Reinicie o servidor de desenvolvimento após alterar variáveis de ambiente. O arquivo `.env` está ignorado pelo Git; apenas `.env.example` deve ser versionado. Na Vercel, configure `OMDB_API_KEY` para Production e Preview; ela é lida apenas pela função serverless.
 
 ## Responsividade
 

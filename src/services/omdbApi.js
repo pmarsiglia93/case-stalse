@@ -1,5 +1,7 @@
-const API_URL = 'https://www.omdbapi.com/';
+const DIRECT_API_URL = 'https://www.omdbapi.com/';
+const PROXY_API_URL = '/api/omdb';
 const API_KEY = process.env.REACT_APP_OMDB_API_KEY;
+const USE_API_PROXY = process.env.NODE_ENV === 'production';
 const CACHE_PREFIX = 'heroverse:omdb:';
 const CACHE_TTL = 24 * 60 * 60 * 1000;
 const MAX_CONCURRENT_REQUESTS = 6;
@@ -34,7 +36,7 @@ const storeResponse = (requestKey, data) => {
 };
 
 const request = async (params, signal) => {
-  if (!API_KEY) {
+  if (!USE_API_PROXY && !API_KEY) {
     throw new OmdbError('Configure REACT_APP_OMDB_API_KEY para carregar o catálogo.', 'MISSING_API_KEY');
   }
 
@@ -48,8 +50,9 @@ const request = async (params, signal) => {
     return cachedPromise;
   }
 
-  const url = new URL(API_URL);
-  Object.entries({ ...params, apikey: API_KEY }).forEach(([key, value]) => url.searchParams.set(key, value));
+  const url = new URL(USE_API_PROXY ? PROXY_API_URL : DIRECT_API_URL, window.location.origin);
+  const requestParams = USE_API_PROXY ? params : { ...params, apikey: API_KEY };
+  Object.entries(requestParams).forEach(([key, value]) => url.searchParams.set(key, value));
 
   const pendingRequest = fetch(url.toString(), { signal })
     .then(async (response) => {
@@ -113,5 +116,5 @@ export const getCatalogMovies = async (entries) => {
   return movies;
 };
 
-export const hasApiKey = Boolean(API_KEY);
+export const hasApiKey = USE_API_PROXY || Boolean(API_KEY);
 export const __clearApiCacheForTests = () => responseCache.clear();
