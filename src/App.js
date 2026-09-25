@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import ScrollToTop from './components/ScrollToTop';
 import { FavoritesProvider } from './context/FavoritesContext';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import CatalogPage from './pages/CatalogPage';
@@ -15,6 +16,7 @@ function Application() {
   const { t } = useLanguage();
   return (
     <FavoritesProvider>
+      <ScrollToTop />
       <a className="skip-link" href="#main-content">{t('skip')}</a>
       <Header />
       <div id="main-content">
