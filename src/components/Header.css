@@ -1,0 +1,43 @@
+.site-header { position: fixed; inset: 0 0 auto; z-index: 100; height: var(--header-height); border-bottom: 1px solid transparent; transition: background .25s, border-color .25s, backdrop-filter .25s; }
+.site-header--solid { border-color: var(--color-border); background: rgba(7, 8, 10, .9); backdrop-filter: blur(18px); }
+.site-header__inner { position: relative; z-index: 2; display: flex; height: 100%; align-items: center; gap: clamp(24px, 3.2vw, 52px); }
+.main-nav { display: flex; align-items: center; gap: clamp(18px, 2vw, 30px); }
+.main-nav a { position: relative; color: #b9bdc6; font-size: .86rem; font-weight: 650; transition: color .2s; }
+.main-nav a::after { position: absolute; right: 0; bottom: -11px; left: 0; height: 2px; border-radius: 2px; background: var(--color-primary); content: ''; opacity: 0; transform: scaleX(.2); transition: opacity .2s, transform .2s; }
+.main-nav a:hover, .main-nav a.active { color: #fff; }
+.main-nav a.active::after { opacity: 1; transform: scaleX(1); }
+.main-nav__label, .main-nav__caption { display: none; }
+.nav-count { display: inline-grid; min-width: 18px; height: 18px; place-items: center; margin-left: 6px; padding: 0 5px; border-radius: 99px; background: var(--color-primary); color: #fff; font-size: .65rem; }
+.header-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+.header-search { display: flex; min-height: 40px; align-items: center; gap: 8px; padding: 0 12px; border: 1px solid transparent; border-radius: 999px; color: #e2e4e8; font-size: .82rem; font-weight: 700; transition: background .2s, border-color .2s; }
+.header-search:hover { border-color: var(--color-border); background: rgba(255, 255, 255, .06); }
+.header-actions .menu-toggle { display: none; }
+.nav-backdrop { display: none; }
+
+@media (max-width: 900px) {
+  .site-header--open { background: #090a0d; backdrop-filter: none; }
+  .site-header__inner { gap: 14px; }
+  .header-actions .menu-toggle { display: inline-grid; flex: 0 0 auto; }
+  .header-search { width: 42px; min-height: 42px; justify-content: center; padding: 0; border-color: var(--color-border); background: rgba(15, 17, 22, .72); }
+  .header-search span { display: none; }
+  .nav-backdrop { position: absolute; top: 100%; left: 0; display: block; width: 100vw; height: calc(100dvh - var(--header-height)); padding: 0; border: 0; background: rgba(0, 0, 0, .62); opacity: 0; pointer-events: none; transition: opacity .25s ease; }
+  .nav-backdrop.is-visible { opacity: 1; pointer-events: auto; }
+  .main-nav { position: absolute; top: 100%; right: 0; display: flex; width: min(88vw, 380px); height: calc(100dvh - var(--header-height)); align-items: stretch; flex-direction: column; gap: 0; padding: 28px 22px 24px; border-left: 1px solid var(--color-border); background: #0b0d11; box-shadow: -28px 0 70px rgba(0, 0, 0, .42); opacity: 0; overflow-y: auto; pointer-events: none; transform: translateX(100%); visibility: hidden; transition: opacity .25s, transform .3s ease, visibility .3s; }
+  .main-nav.is-open { opacity: 1; pointer-events: auto; transform: translateX(0); visibility: visible; }
+  .main-nav__label { display: block; margin-bottom: 10px; color: var(--color-primary); font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+  .main-nav a { display: flex; min-height: 58px; align-items: center; justify-content: space-between; padding: 0 12px; border-bottom: 1px solid var(--color-border); border-radius: 8px; font-size: 1rem; }
+  .main-nav a::after { display: none; }
+  .main-nav a.active { background: rgba(244, 76, 63, .1); color: #fff; }
+  .main-nav a.active::before { width: 3px; height: 22px; margin-right: 11px; border-radius: 3px; background: var(--color-primary); content: ''; }
+  .main-nav a.active > span:first-child { margin-right: auto; }
+  .main-nav__caption { display: block; margin-top: auto; padding: 28px 12px 4px; color: #6f7580; font-size: .76rem; line-height: 1.5; }
+}
+
+@media (max-width: 480px) {
+  .site-header__inner { gap: 8px; }
+  .site-header .brand { font-size: 1rem; }
+  .site-header .brand__mark { width: 32px; height: 32px; }
+  .header-actions { gap: 6px; }
+  .header-search, .header-actions .menu-toggle { width: 40px; height: 40px; }
+  .main-nav { width: min(90vw, 360px); padding-inline: 18px; }
+}

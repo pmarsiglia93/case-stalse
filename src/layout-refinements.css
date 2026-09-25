@@ -1,0 +1,41 @@
+#main-content { min-width: 0; }
+.page-shell { min-height: calc(100svh - 180px); padding-top: calc(var(--header-height) + 58px); padding-bottom: 84px; }
+.page-intro { max-width: 820px; margin-bottom: 36px; }
+.page-intro h1 { font-size: clamp(2.4rem, 4.5vw, 4.1rem); }
+.state-message:not(.state-message--compact) { width: min(100%, 1040px); min-height: 320px; margin-inline: auto; }
+.catalog-toolbar { align-items: flex-end; }
+.filter-chips button { white-space: nowrap; transition: color .2s, border-color .2s, background .2s; }
+.footer__inner { padding-block: 44px; }
+
+@media (max-width: 900px) {
+  .page-shell { padding-top: calc(var(--header-height) + 46px); padding-bottom: 72px; }
+  .page-intro { margin-bottom: 32px; }
+  .catalog-toolbar { align-items: stretch; flex-direction: column; gap: 16px; }
+  .filter-chips { flex-wrap: nowrap; padding: 2px 2px 7px; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; }
+  .filter-chips::-webkit-scrollbar { display: none; }
+  .select-field { align-self: flex-end; }
+}
+
+@media (max-width: 640px) {
+  .page-shell { min-height: calc(100svh - 140px); padding-top: calc(var(--header-height) + 34px); padding-bottom: 58px; }
+  .page-intro { margin-bottom: 26px; }
+  .page-intro h1 { font-size: clamp(2.25rem, 11vw, 3rem); line-height: 1; }
+  .page-intro > p:last-child { margin-top: 12px; font-size: .94rem; line-height: 1.6; }
+  .catalog-toolbar { margin-bottom: 24px; padding-bottom: 16px; }
+  .select-field { width: 100%; align-self: stretch; justify-content: space-between; }
+  .select-field select { min-width: 170px; }
+  .movie-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 12px; }
+  .state-message:not(.state-message--compact) { min-height: 270px; padding: 34px 18px; border-radius: 18px; }
+  .state-message__icon { width: 54px; height: 54px; margin-bottom: 14px; }
+  .state-message h2 { font-size: 1.25rem; }
+  .state-message p { margin-bottom: 18px; font-size: .9rem; }
+  .footer__inner { gap: 28px; padding-block: 34px; }
+}
+
+@media (max-width: 370px) {
+  .movie-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap-inline: 10px; }
+  .movie-grid .movie-card { width: auto; margin-inline: 0; }
+  .movie-card__content h3 { font-size: .82rem; }
+  .movie-card__meta { gap: 5px; font-size: .66rem; }
+  .movie-card__meta span + span::before { margin-right: 5px; }
+}
